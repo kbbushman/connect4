@@ -4,11 +4,7 @@ window.onload = function() {
 
 	console.log('Game loaded... ready!');
 
-	//Set global variable for current player... get rid of this later.
-	 // var currentPlayer = 0;
-	// console.log(currentPlayer);
-
-	//NewGame Object
+	//Connetct4Game constructor
 	function Connect4Game(gameOptions) {
 		this.winner = gameOptions.winner;
 		gameBoardCells = [
@@ -21,8 +17,7 @@ window.onload = function() {
 						];
 	};
 
-
-	//Connect4Game method builds dynamic gameboard cells
+	//Connect4Game method builds dynamic gameboard cells in #gameboard element, returns Connect4Player listenForClick method.
 	Connect4Game.prototype.buildGameBoard = function() {
 		for(var i = 0; i < gameBoardCells.length; i++){
 	    	for(var j = 0; j < gameBoardCells[i].length; j++){
@@ -32,16 +27,18 @@ window.onload = function() {
 		return Connect4Game.prototype.listenForClick();
 	};
 
+	//Connect4Game method adds click event listener to #gameboard element, initializes ChangeGrid method
 	Connect4Game.prototype.listenForClick = function() {
 		$('#gameboard').children().click(this, function() {
 			if (Connect4Player.prototype.currentPlayer % 2 == 0){
-				changeGridRed(this);
+				Connect4Player.prototype.changeGridBlack(this);
 			} else {
-				changeGridBlack(this);
+				Connect4Player.prototype.changeGridRed(this);
 			}
 		})
 	};
 
+	//Initialize buildGameBoard method for Connect4Game
 	var gameOptions = {winner: null};
 	var newGame = new Connect4Game(gameOptions);
 	newGame.buildGameBoard();
@@ -55,49 +52,23 @@ window.onload = function() {
 	var playerOptions = {player: [0,1], currentPlayer: 0};
 	var player = new Connect4Player(playerOptions);
 
-
-	// Connect4Player.prototype.listenForClick = function() {
-	// 	$('#gameboard').children().click(this, function() {
-	// 		if (Connect4Player.prototype.currentPlayer % 2 == 0){
-	// 			changeGridRed(this);
-	// 		} else {
-	// 			changeGridBlack(this);
-	// 		}
-	// 	})
-	// };
-
-
-
-	// function listenForClick() {
-	// 	$('#gameboard').children().click(this, function() {
-	// 		if (Connect4Player.prototype.currentPlayer % 2 == 0){
-	// 			changeGridRed(this);
-	// 		} else {
-	// 			changeGridBlack(this);
-	// 		}
-	// 	})
-	// };
-
-
-	//Add point attribute to cell. Change background to red. Increment and console log currentPlayer.
-	//Maybe a run the for loop to update the cells array, or create a new array for checking win status.
-	//Maybe an if statement to clean up currentPlayer update and remove repetative code.
-	function changeGridRed(element) {
-		var clickedCell = element;
+	//Connect4Player method assigns player point and "drops player piece"
+	Connect4Player.prototype.changeGridRed = function(thisElement) {
+		var clickedCell = thisElement;
 		$(clickedCell).attr('point', '1').html("1");
 		$(clickedCell).attr('style', 'background: red');
+		Connect4Player.prototype.currentPlayer = 0;
+		console.log(Connect4Player.prototype.currentPlayer);
+	};
+
+	Connect4Player.prototype.changeGridBlack = function(thisElement) {
+		var clickedCell = thisElement;
+		$(clickedCell).attr('point', '2').html("2");
+		$(clickedCell).attr('style', 'background: black');
 		Connect4Player.prototype.currentPlayer = 1;
 		console.log(Connect4Player.prototype.currentPlayer);
 	};
 
-	//Add point attribute to cell. Change background to red. Increment and console log currentPlayer.
-	function changeGridBlack(element) {
-		var clickedCell = element;
-		$(clickedCell).attr('point', '2').html("2");
-		$(clickedCell).attr('style', 'background: black');
-		Connect4Player.prototype.currentPlayer = 0;
-		console.log(Connect4Player.prototype.currentPlayer);
-	};
 
 
 
