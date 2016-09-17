@@ -30,11 +30,7 @@ window.onload = function() {
 	//Connect4Game method adds click event listener to #gameboard element, initializes ChangeGrid method
 	Connect4Game.prototype.listenForClick = function() {
 		$('#gameboard').children().click(this, function() {
-			if (Connect4Player.prototype.currentPlayer % 2 == 0){
-				Connect4Player.prototype.changeGridBlack(this);
-			} else {
-				Connect4Player.prototype.changeGridRed(this);
-			}
+				Connect4Player.prototype.dropPlayerPiece(this);
 		})
 	};
 
@@ -53,21 +49,22 @@ window.onload = function() {
 	var player = new Connect4Player(playerOptions);
 
 	//Connect4Player method assigns player point and "drops player piece"
-	Connect4Player.prototype.changeGridRed = function(thisElement) {
-		var clickedCell = thisElement;
-		$(clickedCell).attr('point', '1').html("1");
-		$(clickedCell).attr('style', 'background: red');
-		Connect4Player.prototype.currentPlayer = 0;
-		console.log(Connect4Player.prototype.currentPlayer);
+	Connect4Player.prototype.dropPlayerPiece = function(thisElement) {
+		if (Connect4Player.prototype.currentPlayer % 2 == 0) {
+			var clickedCell = thisElement;
+			$(clickedCell).attr('point', '2').html("2");
+			$(clickedCell).attr('style', 'background: black');
+			Connect4Player.prototype.currentPlayer = 1;
+			console.log(Connect4Player.prototype.currentPlayer);
+		} else {
+			var clickedCell = thisElement;
+			$(clickedCell).attr('point', '1').html("1");
+			$(clickedCell).attr('style', 'background: red');
+			Connect4Player.prototype.currentPlayer = 0;
+			console.log(Connect4Player.prototype.currentPlayer);
+		}
 	};
 
-	Connect4Player.prototype.changeGridBlack = function(thisElement) {
-		var clickedCell = thisElement;
-		$(clickedCell).attr('point', '2').html("2");
-		$(clickedCell).attr('style', 'background: black');
-		Connect4Player.prototype.currentPlayer = 1;
-		console.log(Connect4Player.prototype.currentPlayer);
-	};
 
 
 
