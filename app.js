@@ -4,8 +4,9 @@ window.onload = function() {
 
 	console.log('Game loaded... ready!');
 
-	//Set global variables
+	//Set global variables for now. Need to create constructor for player and cells, or for buildGameBoard?
 	var currentPlayer = 0;
+	console.log(currentPlayer);
 
 	//Array for bulding a 7x6 grid of cells
 	var cells = [
@@ -47,7 +48,7 @@ window.onload = function() {
 		var clickedCell = element;
 		$(clickedCell).attr('point', '1').html("1");
 		$(clickedCell).attr('style', 'background: red');
-		currentPlayer = currentPlayer + 1;
+		currentPlayer = 0;
 		console.log(currentPlayer);
 		console.log(cells);
 	};
@@ -55,9 +56,9 @@ window.onload = function() {
 	//Add point attribute to cell. Change background to red. Increment and console log currentPlayer.
 	function changeGridBlack(element) {
 		var clickedCell = element;
-		$(clickedCell).attr('point', '2');
+		$(clickedCell).attr('point', '2').html("2");
 		$(clickedCell).attr('style', 'background: black');
-		currentPlayer = currentPlayer + 1;
+		currentPlayer = currentPlayer 1;
 		console.log(currentPlayer);
 	};
 
