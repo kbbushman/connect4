@@ -4,7 +4,7 @@ window.onload = function() {
 
 	console.log('Game loaded... ready!');
 
-	//Set global variables for now. Need to create constructor for player and cells, or for buildGameBoard
+	//Set global variable for current player... get rid of this later.
 	 var currentPlayer = 0;
 	// console.log(currentPlayer);
 
@@ -34,8 +34,13 @@ window.onload = function() {
 		return listenForClick();
 	};
 
+	function Connect4Player() {
+		this.player = options.player;
+		this.currentPlayer = 0;
+	};
 
-	var options = {player: [0,1], currentPlayer: 0, winner: null};
+
+	var options = {winner: null};
 	var newGame = new Connect4Game(options);
 	newGame.buildGameBoard();
 
