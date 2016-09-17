@@ -29,9 +29,9 @@ window.onload = function() {
 
 
 		function listen() {
-			$('#gameboard').children().click(function() {
+			$('#gameboard').children().click(this, function() {
 				console.log(this);
-				changeColor();
+				changeColor(this);
 			});
 		}
 
@@ -46,8 +46,9 @@ window.onload = function() {
 
 	//Add inline background style to change color. Console log my failure...
 	function changeColor(element) {
-		$(this).attr('style', 'background: black');
-		console.log("I'm trying!")
+		var clickedCell = element;
+		$(clickedCell).attr('style', 'background: black');
+		console.log(this)
 	}
 
 	
