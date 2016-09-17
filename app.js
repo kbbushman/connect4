@@ -4,7 +4,7 @@ window.onload = function() {
 
 	console.log('Game loaded... ready!');
 
-	//Set global variables for now. Need to create constructor for player and cells, or for buildGameBoard?
+	//Set global variables for now. Need to create constructor for player and cells, or for buildGameBoard
 	var currentPlayer = 0;
 	console.log(currentPlayer);
 
@@ -58,7 +58,7 @@ window.onload = function() {
 		var clickedCell = element;
 		$(clickedCell).attr('point', '2').html("2");
 		$(clickedCell).attr('style', 'background: black');
-		currentPlayer = currentPlayer 1;
+		currentPlayer = 1;
 		console.log(currentPlayer);
 	};
 
