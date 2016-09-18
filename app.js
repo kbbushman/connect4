@@ -1,5 +1,5 @@
 
-// wait for the document to load before doing anything!
+// wait for the document to load before doing anything! Couldn't get $(document) jQuery to work.
 window.onload = function() {
 
 	console.log('Game loaded... ready!');
@@ -39,7 +39,7 @@ window.onload = function() {
 	var newGame = new Connect4Game(gameOptions);
 	newGame.buildGameBoard();
 
-	//Player constructor starts with PlayerOptions, updated by Connect4Player click method
+	//Player constructor starts with PlayerOptions, updated by Connect4Player dropPlayerPiece method
 	function Connect4Player(playerOptions) {
 		this.player = playerOptions.player;
 		this.currentPlayer = playerOptions.player
@@ -52,25 +52,17 @@ window.onload = function() {
 	Connect4Player.prototype.dropPlayerPiece = function(thisElement) {
 		if (Connect4Player.prototype.currentPlayer % 2 == 0) {
 			var clickedCell = thisElement;
-			$(clickedCell).attr('point', '2').html("2");
+			$(clickedCell).attr('point', '2').html('2');
 			$(clickedCell).attr('style', 'background: black');
 			Connect4Player.prototype.currentPlayer = 1;
 			console.log(Connect4Player.prototype.currentPlayer);
 		} else {
 			var clickedCell = thisElement;
-			$(clickedCell).attr('point', '1').html("1");
+			$(clickedCell).attr('point', '1').html('1');
 			$(clickedCell).attr('style', 'background: red');
 			Connect4Player.prototype.currentPlayer = 0;
 			console.log(Connect4Player.prototype.currentPlayer);
 		}
 	};
-
-
-
-
-
-
-
-
 	
-}; //end document onload
+}; //end window onload
