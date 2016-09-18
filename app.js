@@ -63,7 +63,7 @@ window.onload = function() {
 			$(clickedCell).attr('point', '1').html('1');
 			$(clickedCell).attr('style', 'background: red');
 			Connect4Player.prototype.currentPlayer = 0;
-		    gameBoardCells.push(Connect4Player.prototype.currentPlayer);		
+//		    gameBoardCells.push(Connect4Player.prototype.currentPlayer);		
 			console.log(Connect4Player.prototype.currentPlayer);
 		}
 	};
