@@ -8,12 +8,12 @@ window.onload = function() {
 	function Connect4Game(gameOptions) {
 		this.winner = gameOptions.winner;
 		gameBoardCells = [
-							["","","","","","",""],
-							["","","","","","",""],
-							["","","","","","",""],
-							["","","","","","",""],
-							["","","","","","",""],
-							["","","","","","",""]
+							[0,0,0,0,0,0,0],
+							[0,0,0,0,0,0,0],
+							[0,0,0,0,0,0,0],
+							[0,0,0,0,0,0,0],
+							[0,0,0,0,0,0,0],
+							[0,0,0,0,0,0,0]
 						];
 	};
 
@@ -24,6 +24,7 @@ window.onload = function() {
 	    		$("#gameboard").append('<td class="cell" point="0"></td>');
 	    	}
 		}
+		console.log(gameBoardCells)
 		return Connect4Game.prototype.listenForClick();
 	};
 
@@ -55,12 +56,14 @@ window.onload = function() {
 			$(clickedCell).attr('point', '2').html('2');
 			$(clickedCell).attr('style', 'background: black');
 			Connect4Player.prototype.currentPlayer = 1;
+			gameBoardCells.push(Connect4Player.prototype.currentPlayer);
 			console.log(Connect4Player.prototype.currentPlayer);
 		} else {
 			var clickedCell = thisElement;
 			$(clickedCell).attr('point', '1').html('1');
 			$(clickedCell).attr('style', 'background: red');
 			Connect4Player.prototype.currentPlayer = 0;
+		    gameBoardCells.push(Connect4Player.prototype.currentPlayer);		
 			console.log(Connect4Player.prototype.currentPlayer);
 		}
 	};
