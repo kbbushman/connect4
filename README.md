@@ -16,13 +16,16 @@ For this project, I used the following technologies:
 
 Current game features include:
 
-* 
+* Gameboard constructor.
+* Player constructor.
+* Alternates player on click.
 
 ---
 
 ### Project Roadmap
 
-* 
+* Complete logic for win state.
+* Update HTML/CSS for presentation.
 
 ---
 
