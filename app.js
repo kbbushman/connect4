@@ -24,7 +24,7 @@ window.onload = function() {
 	    		$("#gameboard").append('<td class="cell" point="0"></td>');
 	    	}
 		}
-		console.log(gameBoardCells);
+//		console.log(gameBoardCells);
 		return Connect4Game.prototype.listenForClick();
 	};
 
@@ -57,18 +57,18 @@ window.onload = function() {
 			$(clickedCell).attr('point', '2').html('2');
 			$(clickedCell).attr('style', 'background: black');
 			Connect4Player.prototype.currentPlayer = 1;
+//			console.log(Connect4Player.prototype.currentPlayer);
 //			gameBoardCells.push(Connect4Player.prototype.currentPlayer);
-			console.log(Connect4Player.prototype.currentPlayer);
-			$('#player-2-win').css('background-color', '#2c4df3');
-			$('#player-1-win').css('background-color', '#db4040');
+//			$('#player-2-win').css('background-color', '#2c4df3');
+//			$('#player-1-win').css('background-color', '#db4040');
 		} else {
 			var clickedCell = thisElement;
 			$(clickedCell).attr('point', '1').html('1');
 			$(clickedCell).attr('style', 'background: red');
 			Connect4Player.prototype.currentPlayer = 0;
-			console.log(Connect4Player.prototype.currentPlayer);
-			$('#player-1-win').css('background-color', '#2c4df3');
-			$('#player-2-win').css('background-color', '#000');
+//			console.log(Connect4Player.prototype.currentPlayer);
+//			$('#player-1-win').css('background-color', '#2c4df3');
+//			$('#player-2-win').css('background-color', '#000');
 
 		}
 	};
@@ -80,7 +80,7 @@ window.onload = function() {
 	});
 
 	$("#player-1-win").click(function() {
-  		alert( "Plyer 1 Wins!!!" );
+  		alert( "Player 1 Wins!!!" );
 	});
 
 	$("#player-2-win").click(function() {
